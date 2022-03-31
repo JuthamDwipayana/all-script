@@ -1,0 +1,7 @@
+[oracle@oem13cpdb1 ~]$ ssh -o ServerAliveInterval=30 10.54.42.2
+Last login: Thu Nov 18 06:11:25 WIB 2021
+Last login: Thu Nov 18 06:11:26 2021 from oem13cpdb1.telkomsel.co.id
+[oracle@cc011adm01vm01 ~]$ cd /datadump
+[oracle@cc011adm01vm01 datadump]$ tailf impdp_OPB2BOP_PESACN_ADMIN_17112021.log
+
+

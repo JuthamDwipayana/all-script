@@ -1,0 +1,1 @@
+SELECT INST_ID,name,open_mode,database_role from gv$database;

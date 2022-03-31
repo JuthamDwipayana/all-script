@@ -1,0 +1,16 @@
+SELECT ds.tablespace_name
+,ds.segment_name
+,dobj.object_type
+,ROUND(SUM(dhss.space_used_delta) / 1024 / 1024 ,2) "Growth (MB)"
+FROM dba_hist_snapshot snpshot
+,dba_hist_seg_stat dhss
+,dba_objects dobj
+,dba_segments ds
+WHERE begin_interval_time > TRUNC(SYSDATE)-360
+AND snpshot.snap_id = dhss.snap_id
+AND dobj.object_id = dhss.obj#
+AND dobj.owner = ds.owner
+AND dobj.object_name = ds.segment_name
+AND ds.owner ='&owner' AND ds.SEGMENT_NAME IN ('&table_name') AND dobj.object_type='TABLE'
+GROUP BY ds.tablespace_name,ds.segment_name,dobj.object_type
+ORDER BY 3 ASC

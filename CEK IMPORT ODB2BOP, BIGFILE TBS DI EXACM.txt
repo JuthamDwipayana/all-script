@@ -1,0 +1,142 @@
+[oracle@cc011adm01vm01 ~]$ . ODB2BOP.env
+[oracle@cc011adm01vm01 ~]$ sqlplus / as sysdba
+
+SQL*Plus: Release 12.1.0.2.0 Production on Thu Nov 18 06:21:02 2021
+
+Copyright (c) 1982, 2014, Oracle.  All rights reserved.
+
+
+Connected to:
+Oracle Database 12c Enterprise Edition Release 12.1.0.2.0 - 64bit Production
+With the Partitioning, Real Application Clusters, Automatic Storage Management, Oracle Label Security,
+OLAP, Advanced Analytics and Real Application Testing options
+
+SQL> show pdbs;    
+
+    CON_ID CON_NAME			  OPEN MODE  RESTRICTED
+---------- ------------------------------ ---------- ----------
+	 2 PDB$SEED			  READ ONLY  NO
+	 3 ODB2BOPC			  READ WRITE NO
+SQL> alter set container = ODB2BOPC;        
+alter set container = ODB2BOPC
+      *
+ERROR at line 1:
+ORA-00940: invalid ALTER command
+
+
+SQL> alter session set container = ODB2BOPC;
+
+Session altered.
+
+SQL> select tablespace_name,bigfile
+     from   dba_tablespaces;  2  
+
+TABLESPACE_NAME 	       BIG
+------------------------------ ---
+SYSTEM			       YES
+SYSAUX			       YES
+TEMP			       YES
+USERS			       YES
+ADMIN			       YES
+SIT			       YES
+DEV			       YES
+INDEX_DATA		       YES
+TXN_TABLES		       YES
+CFG_TABLES		       YES
+CMD_TXN_TABLES		       YES
+
+TABLESPACE_NAME 	       BIG
+------------------------------ ---
+CMD_INDEX_DATA		       YES
+CMD_CFG_TABLES		       YES
+
+13 rows selected.
+
+SQL> set linesize 100
+set pagesize 200
+col "MAXSIZE (MB)" for 999999999.99
+SQL> SQL> SQL> col "USED (MB)" for 999999999.99
+SQL> col "FREE (MB)" for 999999999.99
+SQL> col "% USED" for 999.99
+SQL> Select  
+  2   ddf.TABLESPACE_NAME "TABLESPACE",
+  3  		ddf.BYTES "bytes (MB)",
+  4           ddf.MAXBYTES "MAXSIZE (MB)",
+  5           (ddf.BYTES - dfs.bytes) "USED (MB)",
+  6           ddf.MAXBYTES-(ddf.BYTES - dfs.bytes) "FREE (MB)",
+  7           round(((ddf.BYTES - dfs.BYTES)/ddf.MAXBYTES)*100,2) "% USED"
+from    (select TABLESPACE_NAME,
+  8    9           round(sum(BYTES)/1024/1024,2) bytes,
+ 10           round(sum(decode(autoextensible,'NO',BYTES,MAXBYTES))/1024/1024,2) maxbytes
+         from   dba_data_files
+         group  by TABLESPACE_NAME) ddf,
+        (select TABLESPACE_NAME,
+ 11   12   13   14                  round(sum(BYTES)/1024/1024,2) bytes
+         from   dba_free_space
+ 15   16           group  by TABLESPACE_NAME) dfs
+ 17  where    ddf.TABLESPACE_NAME=dfs.TABLESPACE_NAME
+order by (((ddf.BYTES - dfs.BYTES))
+/ddf.MAXBYTES) desc, 
+(ddf.MAXBYTES-(ddf.BYTES - dfs.bytes));
+ 18   19   20  
+TABLESPACE		       bytes (MB)  MAXSIZE (MB)     USED (MB)	  FREE (MB)  % USED
+------------------------------ ---------- ------------- ------------- ------------- -------
+ADMIN				    10240      10240.00       8872.44	    1367.56   86.64
+TXN_TABLES			   315467     512000.00     312205.44	  199794.56   60.98
+SYSTEM				   217688     217688.00      61623.56	  156064.44   28.31
+SIT				    20480      20480.00       4305.44	   16174.56   21.02
+CMD_CFG_TABLES			      100	 100.00 	 6.06	      93.94    6.06
+CMD_TXN_TABLES			    32768      32768.00       1916.19	   30851.81    5.85
+DEV				    10240      10240.00        414.50	    9825.50    4.05
+INDEX_DATA			   932.25      32767.00        887.00	   31880.00    2.71
+SYSAUX				    51200      51200.00       1375.87	   49824.13    2.69
+USERS				    51200      51200.00        134.94	   51065.06	.26
+CMD_INDEX_DATA			    32768      32768.00 	67.94	   32700.06	.21
+CFG_TABLES			      200      32767.00 	 7.62	   32759.38	.02
+
+12 rows selected.
+
+SQL> !date;hostname 
+Thu Nov 18 06:25:26 WIB 2021
+cc011adm01vm01.id1.ocm.s7065770.oraclecloudatcustomer.com
+
+SQL> select name,database_role,open_mode from v$database;
+
+NAME	  DATABASE_ROLE    OPEN_MODE
+--------- ---------------- --------------------
+ODB2BOP   PRIMARY	   READ WRITE
+
+SQL> set lines 500
+set pages 500
+COLUMN sid FORMAT 9999
+COLUMN serial# FORMAT 9999999
+COLUMN machine FORMAT A32
+COLUMN progress_pct FORMAT 99999999.00
+COLUMN elapsed FORMAT A10
+COLUMN remaining FORMAT A10
+col MESSAGE for a95
+
+SELECT s.sid,
+       s.serial#,
+   SQL> SQL> SQL> SQL> SQL> SQL> SQL> SQL> SQL> SQL>   2    3      s.machine,
+     sl.message,
+       ROUND(sl.elapsed_seconds/60) || ':' || MOD(sl.elapsed_seconds,60) elapsed,
+       ROUND(sl.time_remaining/60) || ':' || MOD(sl.time_remaining,60) remaining,
+       ROUND(sl.sofar/sl.totalwork*100, 2) progress_  4  pct
+FROM  5    6    7    8     gv$session s,
+       gv$session_longops sl
+WHERE  s.sid     = sl.sid
+AND    s.serial# = sl.serial#
+and sl.totalwork>sl.sofar;  9   10   11   12  
+
+  SID  SERIAL# MACHINE				MESSAGE 											ELAPSED    REMAINING  PROGRESS_PCT
+----- -------- -------------------------------- ----------------------------------------------------------------------------------------------- ---------- ---------- ------------
+#####	 33128 cc011adm02vm01.id1.ocm.s7065770. SYS_IMPORT_FULL_01: IMPORT : 195222 out of 315492 MB done					166:5	   102:19	     61.88
+	       oraclecloudatcustomer.com
+
+
+SQL> select name,database_role,open_mode from v$database;
+
+NAME	  DATABASE_ROLE    OPEN_MODE
+--------- ---------------- --------------------
+ODB2BOP   PRIMARY	   READ WRITE

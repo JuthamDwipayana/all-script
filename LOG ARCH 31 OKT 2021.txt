@@ -1,0 +1,235 @@
+OUTPUT
+----------------------------------------------------------------------------------------------------------------------------------
+connected to target database: PRODHR (DBID=4140761460)
+using target database control file instead of recovery catalog
+
+
+
+allocated channel: ORA_DISK_1
+channel ORA_DISK_1: SID=4078 instance=PRODHR1 device type=DISK
+allocated channel: ORA_DISK_2
+channel ORA_DISK_2: SID=4354 instance=PRODHR1 device type=DISK
+allocated channel: ORA_DISK_3
+channel ORA_DISK_3: SID=2217 instance=PRODHR1 device type=DISK
+allocated channel: ORA_DISK_4
+channel ORA_DISK_4: SID=4493 instance=PRODHR1 device type=DISK
+validation succeeded for archived log
+archived log file name=+RECOC5/PRODHR/ARCHIVELOG/2021_10_30/thread_1_seq_5657.55393.1087340961 RECID=8164 STAMP=1087340965
+validation succeeded for archived log
+archived log file name=+RECOC5/PRODHR/ARCHIVELOG/2021_10_30/thread_1_seq_5659.22446.1087341679 RECID=8166 STAMP=1087341681
+validation succeeded for archived log
+archived log file name=+RECOC5/PRODHR/ARCHIVELOG/2021_10_30/thread_1_seq_5658.24201.1087341307 RECID=8165 STAMP=1087341317
+validation succeeded for archived log
+archived log file name=+RECOC5/PRODHR/ARCHIVELOG/2021_10_30/thread_2_seq_2194.24240.1087341681 RECID=8167 STAMP=1087341682
+validation succeeded for archived log
+archived log file name=+RECOC5/PRODHR/ARCHIVELOG/2021_10_31/thread_1_seq_5662.68185.1087344415 RECID=8171 STAMP=1087344418
+Crosschecked 2 objects
+
+validation succeeded for archived log
+archived log file name=+RECOC5/PRODHR/ARCHIVELOG/2021_10_30/thread_1_seq_5660.2480.1087342065 RECID=8168 STAMP=1087342066
+Crosschecked 1 objects
+
+validation succeeded for archived log
+archived log file name=+RECOC5/PRODHR/ARCHIVELOG/2021_10_30/thread_1_seq_5661.46942.1087342235 RECID=8169 STAMP=1087342237
+Crosschecked 2 objects
+
+validation succeeded for archived log
+archived log file name=+RECOC5/PRODHR/ARCHIVELOG/2021_10_31/thread_2_seq_2195.36934.1087344417 RECID=8170 STAMP=1087344417
+Crosschecked 3 objects
+
+
+
+released channel: ORA_DISK_1
+released channel: ORA_DISK_2
+released channel: ORA_DISK_3
+released channel: ORA_DISK_4
+allocated channel: ORA_DISK_1
+channel ORA_DISK_1: SID=4078 instance=PRODHR1 device type=DISK
+allocated channel: ORA_DISK_2
+channel ORA_DISK_2: SID=4354 instance=PRODHR1 device type=DISK
+allocated channel: ORA_DISK_3
+channel ORA_DISK_3: SID=2217 instance=PRODHR1 device type=DISK
+allocated channel: ORA_DISK_4
+channel ORA_DISK_4: SID=4493 instance=PRODHR1 device type=DISK
+specification does not match any archived log in the repository
+
+
+released channel: ORA_DISK_1
+released channel: ORA_DISK_2
+released channel: ORA_DISK_3
+released channel: ORA_DISK_4
+allocated channel: ch01
+channel ch01: SID=4078 instance=PRODHR1 device type=DISK
+
+allocated channel: ch02
+channel ch02: SID=4354 instance=PRODHR1 device type=DISK
+
+allocated channel: ch04
+channel ch04: SID=2217 instance=PRODHR1 device type=DISK
+
+allocated channel: ch05
+channel ch05: SID=4493 instance=PRODHR1 device type=DISK
+
+allocated channel: ch06
+channel ch06: SID=1805 instance=PRODHR1 device type=DISK
+
+allocated channel: ch07
+channel ch07: SID=1941 instance=PRODHR1 device type=DISK
+
+allocated channel: ch08
+channel ch08: SID=2355 instance=PRODHR1 device type=DISK
+
+allocated channel: ch09
+channel ch09: SID=9 instance=PRODHR1 device type=DISK
+
+allocated channel: ch10
+channel ch10: SID=2904 instance=PRODHR1 device type=DISK
+
+allocated channel: ch11
+channel ch11: SID=1530 instance=PRODHR1 device type=DISK
+
+allocated channel: ch12
+channel ch12: SID=1663 instance=PRODHR1 device type=DISK
+
+allocated channel: ch13
+channel ch13: SID=4630 instance=PRODHR1 device type=DISK
+
+allocated channel: ch14
+channel ch14: SID=2080 instance=PRODHR1 device type=DISK
+
+allocated channel: ch15
+channel ch15: SID=2218 instance=PRODHR1 device type=DISK
+
+allocated channel: ch16
+channel ch16: SID=2356 instance=PRODHR1 device type=DISK
+
+Starting backup at 31-OCT-21
+current log archived
+channel ch01: starting archived log backup set
+channel ch01: specifying archived log(s) in backup set
+input archived log thread=1 sequence=5657 RECID=8164 STAMP=1087340965
+channel ch01: starting piece 1 at 31-OCT-21
+channel ch02: starting archived log backup set
+channel ch02: specifying archived log(s) in backup set
+input archived log thread=1 sequence=5658 RECID=8165 STAMP=1087341317
+channel ch02: starting piece 1 at 31-OCT-21
+channel ch04: starting archived log backup set
+channel ch04: specifying archived log(s) in backup set
+input archived log thread=1 sequence=5662 RECID=8171 STAMP=1087344418
+channel ch04: starting piece 1 at 31-OCT-21
+channel ch05: starting archived log backup set
+channel ch05: specifying archived log(s) in backup set
+input archived log thread=1 sequence=5663 RECID=8173 STAMP=1087376429
+channel ch05: starting piece 1 at 31-OCT-21
+channel ch06: starting archived log backup set
+channel ch06: specifying archived log(s) in backup set
+input archived log thread=1 sequence=5659 RECID=8166 STAMP=1087341681
+channel ch06: starting piece 1 at 31-OCT-21
+channel ch07: starting archived log backup set
+channel ch07: specifying archived log(s) in backup set
+input archived log thread=1 sequence=5660 RECID=8168 STAMP=1087342066
+channel ch07: starting piece 1 at 31-OCT-21
+channel ch08: starting archived log backup set
+channel ch08: specifying archived log(s) in backup set
+input archived log thread=1 sequence=5661 RECID=8169 STAMP=1087342237
+channel ch08: starting piece 1 at 31-OCT-21
+channel ch09: starting archived log backup set
+channel ch09: specifying archived log(s) in backup set
+input archived log thread=2 sequence=2195 RECID=8170 STAMP=1087344417
+channel ch09: starting piece 1 at 31-OCT-21
+channel ch10: starting archived log backup set
+channel ch10: specifying archived log(s) in backup set
+input archived log thread=2 sequence=2194 RECID=8167 STAMP=1087341682
+channel ch10: starting piece 1 at 31-OCT-21
+channel ch11: starting archived log backup set
+channel ch11: specifying archived log(s) in backup set
+input archived log thread=2 sequence=2196 RECID=8172 STAMP=1087376425
+channel ch11: starting piece 1 at 31-OCT-21
+channel ch11: finished piece 1 at 31-OCT-21
+piece handle=/datadump11/prodhr/arch/PRODHR_arch_20211031_v40d031e_1_1.bk tag=TAG20211031T090029 comment=NONE
+channel ch11: backup set complete, elapsed time: 00:00:15
+channel ch11: deleting archived log(s)
+archived log file name=+RECOC5/PRODHR/ARCHIVELOG/2021_10_31/thread_2_seq_2196.55309.1087376425 RECID=8172 STAMP=1087376425
+channel ch09: finished piece 1 at 31-OCT-21
+piece handle=/datadump9/prodhr/arch/PRODHR_arch_20211031_v20d031e_1_1.bk tag=TAG20211031T090029 comment=NONE
+channel ch09: backup set complete, elapsed time: 00:00:26
+channel ch09: deleting archived log(s)
+archived log file name=+RECOC5/PRODHR/ARCHIVELOG/2021_10_31/thread_2_seq_2195.36934.1087344417 RECID=8170 STAMP=1087344417
+channel ch10: finished piece 1 at 31-OCT-21
+piece handle=/datadump10/prodhr/arch/PRODHR_arch_20211031_v30d031e_1_1.bk tag=TAG20211031T090029 comment=NONE
+channel ch10: backup set complete, elapsed time: 00:00:26
+channel ch09: deleting archived log(s)
+archived log file name=+RECOC5/PRODHR/ARCHIVELOG/2021_10_30/thread_2_seq_2194.24240.1087341681 RECID=8167 STAMP=1087341682
+channel ch07: finished piece 1 at 31-OCT-21
+piece handle=/datadump7/prodhr/arch/PRODHR_arch_20211031_v00d031e_1_1.bk tag=TAG20211031T090029 comment=NONE
+channel ch07: backup set complete, elapsed time: 00:00:47
+channel ch07: deleting archived log(s)
+archived log file name=+RECOC5/PRODHR/ARCHIVELOG/2021_10_30/thread_1_seq_5660.2480.1087342065 RECID=8168 STAMP=1087342066
+channel ch06: finished piece 1 at 31-OCT-21
+piece handle=/datadump6/prodhr/arch/PRODHR_arch_20211031_uv0d031e_1_1.bk tag=TAG20211031T090029 comment=NONE
+channel ch06: backup set complete, elapsed time: 00:00:57
+channel ch06: deleting archived log(s)
+archived log file name=+RECOC5/PRODHR/ARCHIVELOG/2021_10_30/thread_1_seq_5659.22446.1087341679 RECID=8166 STAMP=1087341681
+channel ch08: finished piece 1 at 31-OCT-21
+piece handle=/datadump8/prodhr/arch/PRODHR_arch_20211031_v10d031e_1_1.bk tag=TAG20211031T090029 comment=NONE
+channel ch08: backup set complete, elapsed time: 00:00:57
+channel ch06: deleting archived log(s)
+archived log file name=+RECOC5/PRODHR/ARCHIVELOG/2021_10_30/thread_1_seq_5661.46942.1087342235 RECID=8169 STAMP=1087342237
+channel ch05: finished piece 1 at 31-OCT-21
+piece handle=/datadump5/prodhr/arch/PRODHR_arch_20211031_uu0d031e_1_1.bk tag=TAG20211031T090029 comment=NONE
+channel ch05: backup set complete, elapsed time: 00:01:17
+channel ch05: deleting archived log(s)
+archived log file name=+RECOC5/PRODHR/ARCHIVELOG/2021_10_31/thread_1_seq_5663.1630.1087376425 RECID=8173 STAMP=1087376429
+channel ch01: finished piece 1 at 31-OCT-21
+piece handle=/datadump1/prodhr/arch/PRODHR_arch_20211031_ur0d031e_1_1.bk tag=TAG20211031T090029 comment=NONE
+channel ch01: backup set complete, elapsed time: 00:01:27
+channel ch01: deleting archived log(s)
+archived log file name=+RECOC5/PRODHR/ARCHIVELOG/2021_10_30/thread_1_seq_5657.55393.1087340961 RECID=8164 STAMP=1087340965
+channel ch02: finished piece 1 at 31-OCT-21
+piece handle=/datadump2/prodhr/arch/PRODHR_arch_20211031_us0d031e_1_1.bk tag=TAG20211031T090029 comment=NONE
+channel ch02: backup set complete, elapsed time: 00:01:28
+channel ch01: deleting archived log(s)
+archived log file name=+RECOC5/PRODHR/ARCHIVELOG/2021_10_30/thread_1_seq_5658.24201.1087341307 RECID=8165 STAMP=1087341317
+channel ch04: finished piece 1 at 31-OCT-21
+piece handle=/datadump4/prodhr/arch/PRODHR_arch_20211031_ut0d031e_1_1.bk tag=TAG20211031T090029 comment=NONE
+channel ch04: backup set complete, elapsed time: 00:01:28
+channel ch01: deleting archived log(s)
+archived log file name=+RECOC5/PRODHR/ARCHIVELOG/2021_10_31/thread_1_seq_5662.68185.1087344415 RECID=8171 STAMP=1087344418
+Finished backup at 31-OCT-21
+
+released channel: ch01
+
+released channel: ch02
+
+released channel: ch04
+
+released channel: ch05
+
+released channel: ch06
+
+released channel: ch07
+
+released channel: ch08
+
+released channel: ch09
+
+released channel: ch10
+
+released channel: ch11
+
+released channel: ch12
+
+released channel: ch13
+
+released channel: ch14
+
+released channel: ch15
+
+released channel: ch16
+
+
+
+
+
+
+231 rows selected.

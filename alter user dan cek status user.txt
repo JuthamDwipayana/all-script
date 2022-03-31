@@ -1,0 +1,21 @@
+alter user ARIS_SUPARDIMAN_X account unlock;
+alter user AFDANIZON account unlock;
+alter user FANDI_R_WIRATAMA_X account unlock;
+
+alter user ARIS_SUPARDIMAN_X identified by ArisS#17112021;
+alter user AFDANIZON identified by afdanizon_c2p#202117;
+alter user FANDI_R_WIRATAMA_X identified by FandiRW#17112021;
+
+alter user ARIS_SUPARDIMAN_X identified by ArisS#17112021;
+alter user AFDANIZON identified by afdanizon_c2p#202117;
+alter user FANDI_R_WIRATAMA_X identified by FandiRW#17112021;
+
+COL USERNAME FOR A30
+COL ACCOUNT_STATUS FOR A30
+COL PROFILE FOR A30
+SET LINESIZE 300
+SELECT USERNAME,ACCOUNT_STATUS,PROFILE FROM DBA_USERS WHERE USERNAME in ('ARIS_SUPARDIMAN_X','AFDANIZON','FANDI_R_WIRATAMA_X');
+
+ARIS_SUPARDIMAN_X ArisS#17112021
+AFDANIZON afdanizon_c2p#202117
+FANDI_R_WIRATAMA_X FandiRW#17112021

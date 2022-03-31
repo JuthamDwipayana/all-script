@@ -1,0 +1,1 @@
+SELECT jobid,parentjobid,numviewchildren,starttime,endtime,stateenum,commandline,derivedname,jobdefinitionname FROM CC_MAIN.OPJOB WHERE (STATEENUM = 'RUNNING' OR starttime > TO_DATE('2021-12-25','YYYY-MM-DD')) AND numviewchildren > 200;

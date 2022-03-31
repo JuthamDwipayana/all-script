@@ -1,0 +1,43 @@
+DOING 22/11/21
+
+
+Dear DBA Team, @FACHUR ROCHMAN, Mas Hilman
+Kindly need your help to gather AWR report on database Prod below.
+DB URL: exa62bsda-scan.telkomsel.co.id:1521/OPB2BOP
+Schema: PESACN_ADMIN
+Window range:
+22 November 2021 12:00  - 13:00
+22 November 2021 13:00  - 14:00
+DONE
+-------
+
+Arifin sari
+IRIS SIT DB connection, 
+with details below:
+Hostname : 10.59.88.26
+Port : 1521
+Service name : ODCTC4
+Schema : IRIS_SIT11
+Error Message:ORA-28001: the password has expired
+
+28001. 00000 – “the password has expired”
+
+ 
+
+Cause: The user’s account has expired and the password needs to be changed
+DONE
+----todo----
+hk fra 
+tbs alert
+cek pendingan always
+cek u01 setiap exa
+cek zimbra 
+----
+b2b all tablespace
+
+Pak @jenjang_s_utomo@telkomsel.co.id to check and advise whether below query is okay to run from database perspective and when is the best off peak time to execute this query from database point of view in Production by 23 Nov first half. Pak @jenjang_s_utomo@telkomsel.co.id to share connection string/TNS.
+jelaskan querynya aman atau tidak. explain plan
+---pendingan
+Malam ini akan ada activity Increase SGA Allocation pada DB OPC@PODD. Kegiatan dimulai jam 22:00, berikut link yang bisa digunakan untuk berkoordinasi:
+Shift 3
+before after 

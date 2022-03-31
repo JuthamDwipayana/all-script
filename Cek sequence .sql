@@ -1,0 +1,1 @@
+select sequence#,applied from gv$archived_log where applied='YES' order by 1;

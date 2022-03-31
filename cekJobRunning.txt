@@ -1,0 +1,5 @@
+set linesize 200
+col owner for a32
+col job_name for a32
+col elapsed_time for a32
+select owner,job_name,session_id,ELAPSED_TIME,RUNNING_INSTANCE  from dba_scheduler_running_jobs;

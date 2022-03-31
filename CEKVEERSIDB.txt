@@ -1,0 +1,5 @@
+set linesize 200
+col product for a50
+col version for a30
+col status for a30
+select * from product_component_version;

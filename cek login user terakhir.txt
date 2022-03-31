@@ -1,0 +1,21 @@
+select username, max(logon_time) as logon_time from v$session where username is not null
+group by username;
+
+srvctl status service -d OPSCM
+
+set lines 300 pages 1000
+col machine for a40
+col username for a10
+col osuser for a35
+col SERVICE_NAME for a80
+ SELECT INST_ID,machine,username,SERVICE_NAME,
+        NVL(active_count, 0) AS active,
+        NVL(inactive_count, 0) AS inactive,
+        NVL(killed_count, 0) AS killed 
+ FROM   ( SELECT INST_ID,machine, status,username,SERVICE_NAME, count(*) AS quantity
+          FROM   gv$session where username is not null
+      and service_name like 'DGSCVHA%'
+          GROUP BY INST_ID,machine, status,username,SERVICE_NAME)
+ PIVOT  (SUM(quantity) AS count FOR (status) IN ('ACTIVE' AS active, 'INACTIVE' AS inactive, 'KILLED' AS killed))
+ ORDER BY machine,username;
+

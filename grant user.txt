@@ -1,0 +1,11 @@
+CREATE USER andrykus_epc IDENTIFIED BY andrykus_epc2021a PROFILE LEVEL2;
+CREATE USER achmadfar_epc IDENTIFIED BY achmadfar_epc2021a PROFILE LEVEL2;
+CREATE USER candlesim_epc IDENTIFIED BY candlesim_epc2021a PROFILE LEVEL2;
+CREATE USER jonathanfan_epc IDENTIFIED BY jonathanfan_epc2021a PROFILE LEVEL2;
+CREATE USER arifin_epc IDENTIFIED BY arifin_epc2021a PROFILE LEVEL2;
+
+grant create session, connect, resource to andrykus_epc;
+grant create session, connect, resource to achmadfar_epc;
+grant create session, connect, resource to candlesim_epc;
+grant create session, connect, resource to jonathanfan_epc;
+grant create session, connect, resource to arifin_epc;

@@ -1,0 +1,34 @@
+Precheck Database (OPRCS19)
+Make sure there no gap for primary..
+  ALTER SESSION SET NLS_DATE_FORMAT = 'DD-MON-YY HH24:MI:SS';
+SELECT APPLIED_TIME, LATEST_TIME, MINING_TIME, RESTART_TIME FROM V$LOGSTDBY_PROGRESS;
+
+Defer destination on primary OPRCSBSD
+In db Primary
+To ODG
+SQL> ALTER SYSTEM SET LOG_ARCHIVE_DEST_STATE_2 = DEFER sid='*' scope=both; 
+
+
+Stop MRP logical standby
+SQL> ALTER DATABASE STOP LOGICAL STANDBY APPLY;
+
+Switch service name primary OPRCSBSD & OPRCS19
+Switch service name primary OPRCSBSD to OPRCSOLD  and standby OPRCS19 to OPRCSBSD
+In db primary
+SQL> alter system set service_names=’OPRCSBSDOLD’ sid='*' scope=both;
+In db standby
+SQL> alter system set service_names=’OPRCSBSD’ sid='*' scope=both;
+
+Shutdown Old DATABASE
+$> srvctl stop database -d OPRCSBSD
+$> srvctl status database -d OPRCSBSD
+
+
+Activate and Change DB Standby to Primary (OPRCS19)
+Change status db standby to primary on OPRCS19
+SQL> ALTER DATABASE ACTIVATE LOGICAL STANDBY DATABASE;
+$> srvctl stop database -d OPRCS19
+$> srvctl config database -d OPRCS19
+$> srvctl modify database -d OPRCS19 -r primary
+$> srvctl start database -d OPRCS19
+SQL> select name, open_mode, database_role from gv$database;

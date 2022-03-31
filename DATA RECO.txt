@@ -1,0 +1,17 @@
+RECOC5, DATAC5 = exareflxtbs
+RECOC4, DATAC4 = exareflexbsd
+RECOIMC, DATAIMC = exaimc
+RECOC2, DATAC2 = exa62b 
+RECOC1, DATAC1 = exa62a
+
+DB STAND BY:
+delete force noprompt archivelog until time 'SYSDATE-1';
+
+DELETE FOREIGN ARCH
+delete force noprompt foreign archivelog until time 'SYSDATE-1';
+
+DB PRIMARY INCREMENTAL:
+DELETE force archivelog until time '(sysdate-1)' backed up 1 times to device type SBT_TAPE;
+
+
+crosscheck archivelog all;

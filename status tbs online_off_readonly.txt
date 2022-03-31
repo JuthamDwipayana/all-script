@@ -1,0 +1,17 @@
+Select status, tablespace_name
+from DBA_TABLESPACES where tablespace_name like '%TRACK%';
+select tablespace_name from dba_tablespaces where status ='ONLINE';
+
+select tablespace_name from dba_tablespaces where status ='READ ONLY';
+select status from dba_tablespaces where tablespace_name ='DATA_TABLES';
+STATUS COLUMN IN DBA_TABLESPACES FLAG FOR ONLINE,OFFLINE,READ ONLY.
+
+Set lines 200;
+select instance_name, status, host_name from gv$instance;
+!date;hostname;
+
+sftp oracle@10.54.42.2
+get awrrpt_1_20760_20761.html
+
+TBS_SETUP_IDX, TBS_DTL_ACTIVITY
+Select username, default_tablespace from dba_users where USERNAME='IFST2';

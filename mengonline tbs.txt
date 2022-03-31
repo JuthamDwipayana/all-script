@@ -1,0 +1,5 @@
+alter Tablespace RM1_RESOURCE_HIST_BCK_TBS online;
+
+
+
+alter tablespace RM1_RESOURCE_HIST_BCK_TBS add datafile '+DATAC4' size 100M autoextend on next 512M maxsize 30G;

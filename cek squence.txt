@@ -1,0 +1,5 @@
+select sequence#, process, status from gv$managed_standby where process like '%MRP%';
+
+
+ALTER TABLE LOLYTA_DEV.AT_M_PROGRAM ADD IS_TERMIN NUMBER(1,0) DEFAULT 0
+

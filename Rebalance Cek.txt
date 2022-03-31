@@ -1,0 +1,3 @@
+Set linesize 200
+Set pagesize 100
+select * from gv$asm_operation;

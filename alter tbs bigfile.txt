@@ -1,0 +1,1 @@
+alter tablespace USERS autoextend on next 100M maxsize 600G;

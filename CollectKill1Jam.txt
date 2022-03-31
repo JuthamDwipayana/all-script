@@ -1,0 +1,6 @@
+select username, machine, status, count(*) FROM gv$session
+where
+last_call_et > (60*60*1)
+and status='INACTIVE'
+and username not in ('SYS','SYSTEM')
+group by status, machine, username;

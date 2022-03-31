@@ -1,0 +1,16 @@
+cek alert log 
+tail -1000 /u01/app/oracle/diag/rdbms/oprcs19/OPRCS191/trace/alert_OPRCSBSD1.log
+			/u01/app/oracle/diag/rdbms/optwire/OPTWIRE1/trace/
+
+sesuaikan nama db nya alert db apa yg dicari
+
+cek listener log
+cd /u01/app/oracle/diag/tnslsnr/exa62bsdpdb1-mgt/listener/trace
+
+sesuaikan nama servernya dimana mau cari listenerlognya
+
+cp Client_19.tar /apps/oracle/product
+
+ tar -xvf Client_19.tar -C /apps/oracle/product
+ 
+ chmod -R 777 client_19

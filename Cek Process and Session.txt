@@ -1,0 +1,1 @@
+ select INST_ID,resource_name, current_utilization, max_utilization, limit_value from gv$resource_limit where resource_name in ('sessions', 'processes');

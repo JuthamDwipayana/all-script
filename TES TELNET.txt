@@ -1,0 +1,28 @@
+echo " 10.59.102.83 16016 
+ 10.59.102.83 16017 
+ 10.59.102.83 16018 
+ 10.59.102.83 16019 
+ 10.59.102.83 16020 
+ 10.59.102.83 16021 
+ 10.59.102.83 8081 
+ 10.59.102.83 8443 
+ 10.59.102.83 8444 
+ 10.59.102.83 8445 
+ 10.59.102.83 8446" | (
+  TCP_TIMEOUT=5
+  while read host port; do
+    (CURPID=$BASHPID;
+    (sleep $TCP_TIMEOUT;kill $CURPID) &
+    exec 3<> /dev/tcp/$host/$port
+    ) 2>/dev/null
+    case $? in
+    0)
+      echo $host $port is OPEN;;
+    1)
+      echo $host $port is CLOSED;;
+    143) # killed by SIGTERM
+       echo $host $port TIMEOUT;;
+     esac
+     done
+         ) 2>/dev/null
+echo "===== END - TELNET OPERATION ====="
